@@ -1,5 +1,5 @@
-# TextToImage
-Simple text to image converter command line application
+# Text to Image Converter
+Simple text to image converter command line application written in Go
 
 ### Installation
 You can get this package using the `go get` command:
