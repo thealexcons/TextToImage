@@ -6,29 +6,29 @@ import (
 )
 
 var (
-	TextPtr 	*string
-	SizePtr 	*int
-	FontPtr 	*string
-	OutputPtr 	*string
+	textPtr 	*string
+	sizePtr 	*int
+	fontPtr 	*string
+	outputPtr 	*string
 )
 
 func StartApp() {
-	TextPtr = flag.String("text", "", "Your text (required)")
-	SizePtr = flag.Int("size", 0, "Size of the text in points (required)")
-	FontPtr = flag.String("font", "Arial", "Name of font to be used")
-	OutputPtr = flag.String("out", "", "Output path of file")
+	textPtr = flag.String("text", "", "Your text (required)")
+	sizePtr = flag.Int("size", 0, "Size of the text in points (required)")
+	fontPtr = flag.String("font", "Arial", "Name of font to be used")
+	outputPtr = flag.String("out", "", "Output path of file")
 
 	flag.Parse()
 
 	// check if required flags are empty
-	if *TextPtr == "" && *SizePtr == 0 {
+	if *textPtr == "" && *sizePtr == 0 {
 		flag.PrintDefaults()
 		os.Exit(1)
 	}
 
-	if *OutputPtr == "" {
-		path := *TextPtr + ".png"
-		OutputPtr = &path
+	if *outputPtr == "" {
+		path := *textPtr + ".png"
+		outputPtr = &path
 	}
 
 	drawText(*TextPtr, *FontPtr, *SizePtr, *OutputPtr)
